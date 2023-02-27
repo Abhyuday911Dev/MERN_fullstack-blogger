@@ -11,6 +11,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Homepagecommon from "./Components/Homeforall/Homepagecommon";
+import Signup from "./Components/Auth/Signup";
+import Profile from "./Components/Profile/Profile";
 import Signin from "./Components/Auth/Signin";
 // import Editor from "./Components/Editor";
 
@@ -25,17 +27,7 @@ const App = () => {
     // dispatch(asyncloaduser());
     dispatch(asyncloadblogs());
   }, [dispatch]);
-  console.log(user);
-  // const registerUser = () => {
-  //   dispatch(
-  //     asyncsignup({
-  //       name: "Ravi Kumar don1",
-  //       username: "ravi_kumar don1",
-  //       email: "ravi@kumardon1.com",
-  //       password: "Aa@123",
-  //     })
-  //   );
-  // };
+  console.log("app", user);
 
   // const loginUser = () => {
   //   dispatch(
@@ -46,27 +38,26 @@ const App = () => {
   //   );
   // };
 
-  // const signoutUser = () => {
-  //   dispatch(asyncsignout());
-  // };
+  // if (user.isAuthenticated && location.pathname === "/") {
+  //   console.log("hai");
+  //   navigate("/profile");
+  // }
 
   return (
     <div id="main">
       <div id="slide1" className="slide">
         <Routes>
-          <Route path="/" element={<Homepagecommon />}></Route>
-          <Route path="/signup" ></Route>
+          <Route path="/" element={user.isAuthenticated ?<Profile />:<Homepagecommon />}></Route>
           <Route path="/signin" element={<Signin />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
         </Routes>
       </div>
     </div>
 
-
     // <div>
     //   <button onClick={notify}>Call Toast</button>
-    //   <button onClick={registerUser}>Signup</button>
     //   <button onClick={loginUser}>Signin</button>
-    //   <button onClick={signoutUser}>Signout</button>"font-size: 22px;"
     //   <hr />
     //   <Editor />
     //   <hr />
