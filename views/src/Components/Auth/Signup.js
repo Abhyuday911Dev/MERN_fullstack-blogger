@@ -10,8 +10,7 @@ const Signup = () => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
-
-  const submitHandler =async (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     // console.log(
     //   e.target[0].value,
@@ -22,27 +21,41 @@ const Signup = () => {
     dispatch(
       await asyncsignup({
         name: e.target[0].value,
-        username:  e.target[2].value,
-        email:  e.target[1].value,
+        username: e.target[2].value,
+        email: e.target[1].value,
         password: e.target[3].value,
       })
     );
-   
-
+    user.error
+    ? toast.error(user.error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })
+    : console.log("signup");
   };
-  console.log("signup",user);
-  user.error ? toast.error(user.error, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-    }) : console.log("signup");
-  console.log("ye bad me hua");
-  user.isAuthenticated ? navigate("/") : console.log("some thing wrong in signup");
+  console.log("signup", user);
+  user.error
+    ? toast.error(user.error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      })
+    : console.log("signup");
+
+  user.isAuthenticated
+    ? navigate("/")
+    : console.log("some thing wrong in signup");
 
   return (
     <>
@@ -62,7 +75,10 @@ const Signup = () => {
               <i className="ri-twitter-fill"></i>
             </div>
             <span className="form__span">
-              Already have an Account <Link className="thicklink" to="/signin">Sign In</Link>
+              Already have an Account{" "}
+              <Link className="thicklink" to="/signin">
+                Sign In
+              </Link>
             </span>
             <input
               className="form__input"

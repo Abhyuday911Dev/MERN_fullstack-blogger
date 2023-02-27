@@ -84,11 +84,8 @@ select:-webkit-autofill:focus {
     margin-bottom: 12px;
 }
 .form__link {
-    color: #b1a6a6;
-    font-size: 15px;
     margin-top: 25px;
-    border-bottom: 1px solid #a0a5a8;
-    line-height: 2;
+    line-height: 16px;
 }
 .title {
     font-size: 34px;
@@ -104,7 +101,7 @@ select:-webkit-autofill:focus {
 }
 .button {
     width: 180px;
-    height: 50px;
+    height: 40px;
     border-radius: 25px;
     margin-top: 50px;
     font-weight: 700;
@@ -115,6 +112,11 @@ select:-webkit-autofill:focus {
     box-shadow: 8px 8px 16px rgb(22,22,22), -8px -8px 16px #272727;
     border: none;
     outline: none;
+}
+
+.signinbtn{
+    margin-top: 40px;
+
 }
 
 .form__icons i{
