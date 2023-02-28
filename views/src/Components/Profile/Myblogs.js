@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncloadblogs } from "../../store/userActions";
+import { asyncloadmyblogs } from "../../store/userActions";
 
-const Profileblogs = () => {
+const Myblogs = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(asyncloadblogs());
-    // dispatch(asyncloaduser());
+    dispatch(asyncloadmyblogs());
   }, [dispatch]);
+
+  console.log(user);
 
   return (
     <>
       <div id="profileblog">
-        <h2>Trending blogs</h2>
-
+        <h2>Your Stories</h2>
         {user &&
           user.blogs &&
           user.blogs.map((blog) => (
@@ -32,4 +32,4 @@ const Profileblogs = () => {
   );
 };
 
-export default Profileblogs;
+export default Myblogs;

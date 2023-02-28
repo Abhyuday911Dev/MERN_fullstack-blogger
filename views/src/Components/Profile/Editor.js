@@ -2,7 +2,7 @@ import { createReactEditorJS } from "react-editor-js";
 
 import { useRef, useCallback } from "react";
 import { EDITOR_JS_TOOLS } from "./constants";
-import { asynccreateblog, asyncloadblogs } from "../store/userActions";
+import { asynccreateblog, asyncloadblogs } from "../../store/userActions";
 import { useDispatch } from "react-redux";
 
 const ReactEditorJS = createReactEditorJS();

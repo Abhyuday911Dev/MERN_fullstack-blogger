@@ -34,7 +34,7 @@ select:-webkit-autofill:focus {
 #formparent {
     position: relative;
     width: 100px;
-    min-width: 40vw;
+    width: min(420px, 80vw);
     min-height: 600px;
     height: 600px;
     padding: 25px;

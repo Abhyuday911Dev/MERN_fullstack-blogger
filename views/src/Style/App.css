@@ -36,20 +36,21 @@ body {
 }
 
 
-#main{ 
+#main {
     min-height: 100%;
     width: 100%;
 }
 
-.slide{
+.slide {
     min-height: 100vh;
     width: 100%;
     /* background-color: rgb(15, 18, 21); */
     background-color: #121212;
+    overflow-x: hidden;
 }
 
 
-nav{
+nav {
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -63,24 +64,25 @@ nav{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.bm{
+.bm {
     height: 25px;
 }
 
-#navcont{
+#navcont {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#ulflex{
+#ulflex {
     display: flex;
     list-style-type: none;
     align-items: center;
 }
 
-#ulflex li,#ulflex li a{
+#ulflex li,
+#ulflex li a {
     cursor: pointer;
     padding-right: 22px;
     font-weight: 600;
@@ -88,11 +90,11 @@ nav{
     color: #111;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-li button{
+li button {
     background-color: #000;
     color: #fff;
     padding: 8px 14px;
@@ -101,7 +103,7 @@ li button{
     font-weight: 500;
 }
 
-#hero{
+#hero {
     height: 85vh;
     background-color: #FFC017;
     position: relative;
@@ -109,18 +111,18 @@ li button{
     padding-top: 75px;
 }
 
-#heroright{
+#heroright {
     width: 129vh;
     height: 100vh;
     font-size: 22px;
     position: absolute;
     left: 56%;
     top: 72%;
-    transform: translate(0%,-50%);
+    transform: translate(0%, -50%);
     overflow: hidden;
 }
 
-#heroleft{
+#heroleft {
     width: 56%;
     height: 100%;
     display: flex;
@@ -131,7 +133,7 @@ li button{
     /* padding: 4vmin 0 0 3.5vmin ; */
 }
 
-#heroleft h1{
+#heroleft h1 {
     color: #000;
     font-size: 7.5vmax;
     font-family: Georgia;
@@ -139,7 +141,7 @@ li button{
     margin-bottom: 6vh;
 }
 
-#heroleft h6{
+#heroleft h6 {
     color: #000;
     font-size: 1.5vmax;
     width: 65%;
@@ -147,7 +149,7 @@ li button{
     margin-bottom: 6vh;
 }
 
-#hero button{
+#hero button {
     background-color: #000;
     color: #fff;
     padding: 8px 20px;
@@ -156,7 +158,7 @@ li button{
     font-size: 20px;
 }
 
-#homeblog{
+#homeblog {
     width: 70%;
     min-height: 30vh;
     background-color: #5e5b5b;
@@ -167,18 +169,18 @@ li button{
     gap: 5vh;
 }
 
-#home-card{
+#home-card {
     width: 85%;
     height: 200px;
     background-color: #111;
-    padding: 20px ;
+    padding: 20px;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
-.thicklink{
+.thicklink {
     font-weight: 700;
     text-decoration: underline;
     margin-left: 5px;
@@ -209,14 +211,14 @@ button{
 
 
 
-#profile{
-    height: 100vh;
+#profile {
+    min-height: 100vh;
     width: 100%;
     padding: 8vh 5vw 10vh 5vw;
     /* background-color: #fff; */
 }
 
-#profileimg{
+#profileimg {
     height: 250px;
     width: 250px;
     border-radius: 5%;
@@ -224,22 +226,22 @@ button{
     margin-right: 4vw;
 }
 
-#profiledets{
+#profiledets {
     display: flex;
     gap: 30px;
     width: 100%;
     justify-content: space-evenly;
     margin-bottom: 3.5vmin;
     background-color: #232323;
-    padding: 15px 20px;
+    padding: 20px 20px;
     border-radius: 10px;
     border: rgb(25, 25, 25) 8px solid;
     box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
     -webkit-box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
     -moz-box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
-
 }
-#profiledetsright{
+
+#profiledetsright {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -247,31 +249,34 @@ button{
     padding-bottom: 20px;
 }
 
-#profiledets h1{
+#profiledets h1 {
     font-size: 5vmax;
     /* line-height: 4.5vmax; */
     letter-spacing: 0.2vmax;
     margin-bottom: 19px;
 }
 
-#profile h2{
-    margin-bottom: 1vh;
+#profile h2 {
+    margin-bottom: 0vh;
+    font-size: 30px;
+    width: 85%;
+    line-height: 15px;
 }
 
-.upper{
+.upper {
     text-transform: capitalize;
     font-weight: 600;
     text-decoration: underline;
 
 }
 
-.darkyellow{
+.darkyellow {
     color: #967a2c;
     text-decoration: underline;
 
 }
 
-.profile-btn{
+.profile-btn {
     background-color: #303232;
     color: #000000;
     padding: 8px 30px;
@@ -284,22 +289,39 @@ button{
     -moz-box-shadow: 1px 1px 25px 0px rgba(0, 0, 0, 0.91) inset;
 }
 
-#profileblog{
-    width: 50%;
+#profileblog {
+    width: 60%;
     min-height: 30vh;
-    background-color: #2a2a2a;
+    background-color: #232323;
+    border-radius: 10px;
+    border: rgb(25, 25, 25) 8px solid;
+    box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
+    -webkit-box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
+    -moz-box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 5vh 0;
+    padding: 5vh 0 7vh 0;
     gap: 5vh;
+    margin-bottom: 20px;
 }
 
-#profile-card{
+#profileblog section {
+    padding: 3px 5px;
+    /* background-color: #fff; */
+}
+
+#profile-card-parent {
     width: 85%;
+}
+
+
+
+#profile-card {
     height: 170px;
     background-color: #111;
-    padding: 20px ;
+    padding: 20px;
+    border-radius: 7px 7px 0 0;
 }
 
 
@@ -307,7 +329,7 @@ button{
 
 
 
-img{
+img {
     width: 200px;
     height: 100%;
     object-fit: cover;

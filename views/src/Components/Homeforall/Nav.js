@@ -13,11 +13,12 @@ const Nav = () => {
           <li>Membership</li>
           <li>Write</li>
           <li>
-            <Link to="/signin" >Sign in </Link>
+            <Link to="/signin">Sign in </Link>
           </li>
           <li>
-          <Link to="/signup" ><button>Get started</button> </Link>
-            
+            <Link to="/signup">
+              <button>Get started</button>{" "}
+            </Link>
           </li>
         </ul>
       </div>
