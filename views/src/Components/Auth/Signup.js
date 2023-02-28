@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { asyncsignup } from "../../store/userActions";
@@ -12,12 +12,6 @@ const Signup = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // console.log(
-    //   e.target[0].value,
-    //   e.target[1].value,
-    //   e.target[2].value,
-    //   e.target[3].value
-    // );
     dispatch(
       await asyncsignup({
         name: e.target[0].value,
@@ -39,7 +33,7 @@ const Signup = () => {
       })
     : console.log("signup");
   };
-  console.log("signup", user);
+  // console.log("signup", user);
   user.error
     ? toast.error(user.error, {
         position: "top-right",
@@ -53,9 +47,22 @@ const Signup = () => {
       })
     : console.log("signup");
 
-  user.isAuthenticated
-    ? navigate("/")
-    : console.log("some thing wrong in signup");
+  // console.log(user);
+
+  // problem ___________________________________________________
+  // Cannot update a component (`BrowserRouter`) while rendering a different component (`Signin`). To locate the bad setState() call inside `Signin`, and its fix
+
+  useEffect(() => {
+    if (user.isAuthenticated) {
+      navigate("/");
+    }
+  }, [user.isAuthenticated, navigate]);
+
+  // user.isAuthenticated
+  //   ? navigate("/")
+  //   : console.log("some thing wrong in signup");
+
+  // problem ___________________________________________________ fixed using God gpt
 
   return (
     <>

@@ -14,6 +14,7 @@ import Homepagecommon from "./Components/Homeforall/Homepagecommon";
 import Signup from "./Components/Auth/Signup";
 import Profile from "./Components/Profile/Profile";
 import Signin from "./Components/Auth/Signin";
+import Profileblogs from "./Components/Profile/Profileblogs";
 // import Editor from "./Components/Editor";
 
 const App = () => {
@@ -27,7 +28,7 @@ const App = () => {
     // dispatch(asyncloaduser());
     dispatch(asyncloadblogs());
   }, [dispatch]);
-  console.log("app", user);
+  // console.log("app", user);
 
   // const loginUser = () => {
   //   dispatch(
@@ -47,7 +48,9 @@ const App = () => {
     <div id="main">
       <div id="slide1" className="slide">
         <Routes>
-          <Route path="/" element={user.isAuthenticated ?<Profile />:<Homepagecommon />}></Route>
+          <Route path="/" element={user.isAuthenticated ?<Profile />:<Homepagecommon />}>
+            <Route path="/" element={<Profileblogs />}></Route>
+          </Route>
           <Route path="/signin" element={<Signin />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
