@@ -307,8 +307,18 @@ button {
 }
 
 #profileblog section {
-    padding: 3px 5px;
-    /* background-color: #fff; */
+    text-align: end;
+}
+
+#profileblog section i{
+    font-size: 20px;
+    background-color: #111111;
+    padding: 0px 15px 7px 15px;
+    border-radius: 0 0 4px 4px;
+    font-weight: 600;
+    display: inline-block;
+    color: #6b6b6b;
+    cursor: pointer;
 }
 
 #profile-card-parent {
@@ -321,7 +331,7 @@ button {
     height: 170px;
     background-color: #111;
     padding: 20px;
-    border-radius: 7px 7px 0 0;
+    border-radius: 10px 10px 0 10px;
 }
 
 
