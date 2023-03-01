@@ -54,7 +54,6 @@ export const asyncloadblogs = () => async (dispatch) => {
 
 export const asyncsaveunsaveblog = (e) => async (dispatch) => {
   try {
-    // console.log(dispatch,e);
     await axios.get(`/list/${e}`);
     // const data = await axios.get(`/list/${e}`);
     // dispatch(loaduser(data.user));
