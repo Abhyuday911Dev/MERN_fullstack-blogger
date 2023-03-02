@@ -21,17 +21,17 @@ const Signup = () => {
       })
     );
     user.error
-    ? toast.error(user.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      })
-    : console.log("signup");
+      ? toast.error(user.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
+      : console.log("signup");
   };
   // console.log("signup", user);
   user.error
@@ -68,6 +68,9 @@ const Signup = () => {
     <>
       <div className="mainauthcont">
         <div id="formparent">
+          <div className="crossauth" onClick={() => navigate("/")}>
+            X
+          </div>
           <form
             className="form"
             id="a-form"

@@ -9,7 +9,7 @@ const Signin = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
-  const [temppass, setTemppass] = useState("Aa@123")
+  const [temppass, setTemppass] = useState("Aa@123");
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -46,6 +46,9 @@ const Signin = () => {
     <>
       <div className="mainauthcont">
         <div id="formparent">
+          <div className="crossauth" onClick={() => navigate("/")}>
+            X
+          </div>
           <form
             className="form"
             id="b-form"
@@ -79,7 +82,7 @@ const Signin = () => {
               placeholder="Password"
               required
               value={temppass}
-              onChange={e => setTemppass(e.value)}
+              onChange={(e) => setTemppass(e.value)}
             />
             <Link className="form__link thicklink">Forgot your password?</Link>
             <button
