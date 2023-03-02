@@ -55,13 +55,14 @@ nav {
     width: 100%;
     z-index: 10;
     top: 0%;
-    background-color: #FFC017;
+    background-color: #ae8e35;
     height: 75px;
     padding: 0px 20px;
     display: flex;
     align-items: center;
-    border-bottom: #000 1px solid;
+    /* border-bottom: #000 1px solid; */
     font-family: Arial, Helvetica, sans-serif;
+    border: rgb(25, 25, 25) 5px solid;
 }
 
 .bm {
@@ -104,20 +105,22 @@ li button {
 }
 
 #hero {
-    height: 85vh;
-    background-color: #FFC017;
+    height: 65vh;
+    background-color: #ae8e35;
     position: relative;
     overflow: hidden;
-    padding-top: 75px;
+    margin-top: 75px;
+    border: rgb(25, 25, 25) 8px solid;
+    border-top: 0;margin-bottom: 5vh;
 }
 
 #heroright {
     width: 129vh;
-    height: 100vh;
+    height: 90vh;
     font-size: 22px;
     position: absolute;
     left: 56%;
-    top: 72%;
+    top: 70%;
     transform: translate(0%, -50%);
     overflow: hidden;
 }
@@ -256,7 +259,7 @@ button {
     margin-bottom: 19px;
 }
 
-#profile h2 {
+#profileblog h2 {
     margin-bottom: 0vh;
     font-size: 30px;
     width: 85%;
