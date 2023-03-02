@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { asyncsignin } from "../../store/userActions";
@@ -9,6 +9,7 @@ const Signin = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const [temppass, setTemppass] = useState("Aa@123")
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -18,35 +19,8 @@ const Signin = () => {
         password: e.target[1].value,
       })
     );
-
-    // user.error
-    //   ? toast.error(user.error, {
-    //       position: "top-right",
-    //       autoClose: 5000,
-    //       hideProgressBar: false,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true,   
-    //       progress: undefined,
-    //       theme: "dark",
-    //     })
-    //   : console.log("signup");
   };
 
-//   console.log("signup", user);
-  // user.error
-  //   ? toast.error(user.error, {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "dark",
-  //     })
-  //   : console.log("signup");
-  // console.log("ye bad me hua");
   useEffect(() => {
     if (user.isAuthenticated) {
       navigate("/");
@@ -104,6 +78,8 @@ const Signin = () => {
               name="password"
               placeholder="Password"
               required
+              value={temppass}
+              onChange={e => setTemppass(e.value)}
             />
             <Link className="form__link thicklink">Forgot your password?</Link>
             <button
