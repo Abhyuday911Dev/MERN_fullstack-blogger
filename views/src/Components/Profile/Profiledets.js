@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import LazyImage from "./LazyImage";
 
 const Profiledets = (props) => {
   const navigate = useNavigate();
@@ -28,10 +29,14 @@ const Profiledets = (props) => {
     );
   return (
     <div id="profiledets">
-      <img
+      {/* <img
         src={`https://api.dicebear.com/5.x/identicon/svg?seed=${props.name}`}
         alt=""
         id="profileimg"
+      /> */}
+      <LazyImage
+        src={`https://api.dicebear.com/5.x/identicon/svg?seed=${props.name}`}
+        alt=""
       />
       <div id="profiledetsright">
         <h1>
