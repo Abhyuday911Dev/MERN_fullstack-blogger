@@ -76,6 +76,17 @@ export const asyncloadmyblogs = () => async (dispatch) => {
   }
 };
 
+export const asyncloadmysavedblogs = () => async (dispatch) => {
+  try {
+    const data = await axios.get("/show-lists");
+    console.log("loaduser action lists>>>>>", data.data.lists);
+    // console.log(data);
+    dispatch(loadblogs(data.data.lists));
+  } catch (err) {
+    dispatch(errors(err.response.data.message));
+  }
+};
+
 export const asynccreateblog = (blog) => async (dispatch) => {
   try {
     await axios.post("/create-stories", blog);
