@@ -8,7 +8,7 @@ const Profileblogs = () => {
 
   useEffect(() => {
     dispatch(asyncloadblogs());
-    // dispatch(asyncloaduser());
+    dispatch(asyncloaduser());
   }, [dispatch]);
 
   const saveHandler = async (e) => {
@@ -30,7 +30,6 @@ const Profileblogs = () => {
                 id="profile-card"
                 dangerouslySetInnerHTML={{ __html: blog.data }}
               ></div>
-              {/* <section><i onClick={(e) => {saveHandler(blog._id)}} key={blog._id} className={`ri-bookmark-line`}></i></section> */}
               <section><i onClick={(e) => {saveHandler(blog._id)}} key={blog._id} className={user.user.lists.includes(blog._id) ? "ri-bookmark-fill" : "ri-bookmark-line"}></i></section>
             </div>
           ))}

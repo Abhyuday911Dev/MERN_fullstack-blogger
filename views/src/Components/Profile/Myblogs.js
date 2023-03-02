@@ -10,7 +10,7 @@ const Myblogs = () => {
     dispatch(asyncloadmyblogs());
   }, [dispatch]);
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <>
