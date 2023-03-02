@@ -15,6 +15,17 @@ const Profiledets = (props) => {
         Show my stories
       </button>
     );
+
+  const setSavedBtn =
+    location.pathname === "/mysavedblogs" ? (
+      <button className="profile-btn" onClick={() => navigate("/")}>
+        Show Homepage
+      </button>
+    ) : (
+      <button className="profile-btn" onClick={() => navigate("/mysavedblogs")}>
+        Show my saved list
+      </button>
+    );
   return (
     <div id="profiledets">
       <img
@@ -29,7 +40,7 @@ const Profiledets = (props) => {
           <small className="upper">{props.name}</small>{" "}
         </h1>
         {setStoriesBtn}
-        <button className="profile-btn">Show saved blogs</button>
+        {setSavedBtn}
       </div>
     </div>
   );

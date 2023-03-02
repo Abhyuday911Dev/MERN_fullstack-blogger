@@ -9,6 +9,7 @@ import Profile from "./Components/Profile/Profile";
 import Signin from "./Components/Auth/Signin";
 import Profileblogs from "./Components/Profile/Profileblogs";
 import Myblogs from "./Components/Profile/Myblogs";
+import Savedblogs from "./Components/Profile/Savedblogs";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const App = () => {
           >
             <Route path="/" element={<Profileblogs />}></Route>
             <Route path="/myblogs" element={<Myblogs />}></Route>
+            <Route path="/mysavedblogs" element={<Savedblogs />}></Route>
           </Route>
           <Route path="/signin" element={<Signin />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
