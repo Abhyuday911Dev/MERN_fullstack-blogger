@@ -194,24 +194,58 @@ exports.showlists = async (req, res) => {
 // my listblog route
 
 exports.listblog = async (req, res) => {
-    try {
-        const { blogid } = req.params;
-        if (!req.user.lists.includes(blogid)) {
-            req.user.lists.push(blogid);
-            await req.user.save();
-            res.status(200).json({ message: "blog saved to user list" });
-        } else {
-            const blogIndex = req.user.lists.findIndex(
-                (blog) => blog._id === blogid
-            );
-            req.user.lists.splice(blogIndex, 1);
-            await req.user.save();
-            res.status(200).json({ message: "blog unsaved from user list" });
-        }
-    } catch (error) {
-        res.status(500).json({ message: error });
+  const { blogid } = req.params;
+  const userr = await User.findById(req.user._id);
+
+  try {
+    if (!userr.lists.includes(blogid)) {
+      userr.lists.push(blogid);
+
+      await userr.save();
+      //   console.log("if lists", user.lists);
+      req.user = userr;
+      await req.user.save();
+
+      //   console.log("if user", req.user);
+      res.status(200).json({ message: "blog saved to user list" });
+    } else {
+      const blogIndex = userr.lists.indexOf(blogid);
+      let templists = [...userr.lists];
+      templists.splice(blogIndex, 1);
+      userr.lists = templists;
+
+      await userr.save();
+      console.log("else lists", userr.lists);
+      req.user = userr;
+      await req.user.save();
+
+      //   console.log("else user", req.user);
+      res.status(200).json({ message: "blog unsaved from user list" });
     }
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
 };
+
+// exports.listblog = async (req, res) => {
+//     try {
+//         const { blogid } = req.params;
+//         if (!req.user.lists.includes(blogid)) {
+//             req.user.lists.push(blogid);
+//             await req.user.save();
+//             res.status(200).json({ message: "blog saved to user list" });
+//         } else {
+//             const blogIndex = req.user.lists.findIndex(
+//                 (blog) => blog._id === blogid
+//             );
+//             req.user.lists.splice(blogIndex, 1);
+//             await req.user.save();
+//             res.status(200).json({ message: "blog unsaved from user list" });
+//         }
+//     } catch (error) {
+//         res.status(500).json({ message: error });
+//     }
+// };
 
 exports.uploadBlog = async (req, res) => {
   try {
