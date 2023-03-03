@@ -42,21 +42,23 @@ const Signup = () => {
   // problem ___________________________________________________ fixed using God gpt
 
   useEffect(() => {
-    if (user.isAuthenticated) {
-      navigate("/");
-    } else if (flag) {
-      toast.error(user.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+    if(flag) {
+      console.log(user.error);
+      if(user.error !== "can not access the resource"){
+        toast.error(user.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+      
     }
-  }, [user.error, flag, navigate, user.isAuthenticated]);
+  }, [user.error,flag]);
 
   return (
     <>

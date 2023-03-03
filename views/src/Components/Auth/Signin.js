@@ -37,22 +37,23 @@ const Signin = () => {
   
 
   useEffect(() => {
-    if (user.isAuthenticated) {
-      navigate("/");
+    if(flg) {
+      console.log(user.error);
+      if(user.error !== "can not access the resource"){
+        toast.error(user.error, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+      
     }
-    else if(flg) {
-      toast.error(user.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }
-  }, [user.error,flg,navigate,user.isAuthenticated]);
+  }, [user.error,flg]);
 
   return (
     <>
@@ -94,7 +95,7 @@ const Signin = () => {
               placeholder="Password"
               required
               value={temppass}
-              onChange={(e) => setTemppass(e.target[0].value)}
+              onChange={(e) => setTemppass(e.target.value)}
             />
             <Link className="form__link thicklink">Forgot your password?</Link>
             <button
