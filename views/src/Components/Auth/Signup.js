@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { asyncsignup } from "../../store/userActions";
@@ -9,6 +9,8 @@ const Signup = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const [error, setError] = useState(user.error);
+  const [flag, setFlag] = useState(0);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -20,34 +22,9 @@ const Signup = () => {
         password: e.target[3].value,
       })
     );
-    user.error
-      ? toast.error(user.error, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        })
-      : console.log("signup");
+    setError(user.error);
+    setFlag(1);
   };
-  // console.log("signup", user);
-  user.error
-    ? toast.error(user.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      })
-    : console.log("signup");
-
-  // console.log(user);
 
   // problem ___________________________________________________
   // Cannot update a component (`BrowserRouter`) while rendering a different component (`Signin`). To locate the bad setState() call inside `Signin`, and its fix
@@ -64,12 +41,29 @@ const Signup = () => {
 
   // problem ___________________________________________________ fixed using God gpt
 
+  useEffect(() => {
+    if (user.isAuthenticated) {
+      navigate("/");
+    } else if (flag) {
+      toast.error(user.error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }, [user.error, flag, navigate, user.isAuthenticated]);
+
   return (
     <>
       <div className="mainauthcont">
         <div id="formparent">
           <div className="crossauth" onClick={() => navigate("/")}>
-          <i className="ri-add-fill"></i>
+            <i className="ri-add-fill"></i>
           </div>
           <form
             className="form"
@@ -122,6 +116,7 @@ const Signup = () => {
               id="button_h"
               type="submit"
               className="form__button button submit"
+              key={error}
             >
               SIGN UP
             </button>
