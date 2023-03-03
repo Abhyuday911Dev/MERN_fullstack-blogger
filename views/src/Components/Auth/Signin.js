@@ -37,7 +37,10 @@ const Signin = () => {
   
 
   useEffect(() => {
-    if (flg) {
+    if (user.isAuthenticated) {
+      navigate("/");
+    }
+    else if(flg) {
       toast.error(user.error, {
         position: "top-right",
         autoClose: 5000,
@@ -49,7 +52,7 @@ const Signin = () => {
         theme: "dark",
       });
     }
-  }, [user.error,flg]);
+  }, [user.error,flg,navigate,user.isAuthenticated]);
 
   return (
     <>
