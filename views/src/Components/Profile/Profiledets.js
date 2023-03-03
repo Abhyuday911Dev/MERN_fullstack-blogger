@@ -29,11 +29,6 @@ const Profiledets = (props) => {
     );
   return (
     <div id="profiledets">
-      {/* <img
-        src={`https://api.dicebear.com/5.x/identicon/svg?seed=${props.name}`}
-        alt=""
-        id="profileimg"
-      /> */}
       <LazyImage
         src={`https://api.dicebear.com/5.x/identicon/svg?seed=${props.name}`}
         alt=""

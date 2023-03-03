@@ -94,14 +94,15 @@ const Signin = () => {
               placeholder="Password"
               required
               value={temppass}
-              onChange={(e) => setTemppass(e.value)}
+              onChange={(e) => setTemppass(e.target[0].value)}
             />
             <Link className="form__link thicklink">Forgot your password?</Link>
             <button
               id="button_h"
               type="submit"
               className="form__button button submit signinbtn"
-            >
+              key={error}
+           >
               SIGN IN
             </button>
           </form>
