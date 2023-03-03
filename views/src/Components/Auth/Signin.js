@@ -10,6 +10,8 @@ const Signin = () => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
   const [temppass, setTemppass] = useState("Aa@123");
+  const [error, setError] = useState(user.error);
+  const [flg, setFlg] = useState(0);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -19,6 +21,8 @@ const Signin = () => {
         password: e.target[1].value,
       })
     );
+    setError(user.error);
+    setFlg(1);
   };
 
   useEffect(() => {
@@ -28,26 +32,31 @@ const Signin = () => {
   }, [user.isAuthenticated, navigate]);
 
   useEffect(() => {
-    user.error
-      ? toast.error(user.error, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        })
-      : console.log("signup");
-  }, [user.error]);
+    console.log("first")
+  })
+  
+
+  useEffect(() => {
+    if (flg) {
+      toast.error(user.error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  }, [user.error,flg]);
 
   return (
     <>
       <div className="mainauthcont">
         <div id="formparent">
           <div className="crossauth" onClick={() => navigate("/")}>
-            X
+            <i className="ri-add-fill"></i>
           </div>
           <form
             className="form"
