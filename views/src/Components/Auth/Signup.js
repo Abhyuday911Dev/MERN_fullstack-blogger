@@ -69,7 +69,7 @@ const Signup = () => {
       <div className="mainauthcont">
         <div id="formparent">
           <div className="crossauth" onClick={() => navigate("/")}>
-            X
+          <i className="ri-add-fill"></i>
           </div>
           <form
             className="form"

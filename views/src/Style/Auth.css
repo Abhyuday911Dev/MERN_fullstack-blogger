@@ -49,17 +49,18 @@ select:-webkit-autofill:focus {
     right: 15px;
     top: 10px;
     font-weight: 700;
-    font-size: 15px;
-    border: 2px solid #252525;
-    color: #7a7979;
-    height: 25px;
+    color: #707070;
     width: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
-    padding: 0 5px;
     cursor: pointer;
+}
+
+.crossauth i{
+    rotate: 45deg;
+    font-size: 30px;
 }
 
 #button_h:hover {
