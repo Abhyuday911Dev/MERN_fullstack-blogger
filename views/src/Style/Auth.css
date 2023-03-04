@@ -46,10 +46,8 @@ select:-webkit-autofill:focus {
 
 #forgetparent{
     width: min(420px, 80vw);
-    background-color: #181818;
-    box-shadow: 10px 10px 10px rgba(19, 19, 19, 0.691), -10px -10px 10px #171717ae;
-    border-radius: 12px;
-    padding: 1vw 2vw;
+    height: 100%;
+    
 }
 
 #forgetparent h3{
@@ -61,7 +59,7 @@ select:-webkit-autofill:focus {
 #send-link{
     margin-top: 2%;
     height: 32px;
-    width: auto;
+    width: 100%;
     padding: 0 20px;
     font-size: 13px;
     margin-left: 3px;
@@ -75,6 +73,17 @@ select:-webkit-autofill:focus {
 #forget-form{
     /* justify-content: flex-start; */
     align-items: flex-start;
+    height: auto;
+    background-color: #181818;
+    box-shadow: 10px 10px 10px rgba(19, 19, 19, 0.691), -10px -10px 10px #171717ae;
+    border-radius: 12px;
+    padding: 1vw 2vw;
+    margin-top: 7vmin;
+}
+
+#reset-email{
+    height: 35px;
+    width: 100%;
 }
 
 .crossauth{

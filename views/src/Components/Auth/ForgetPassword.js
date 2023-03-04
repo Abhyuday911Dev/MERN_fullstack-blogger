@@ -28,6 +28,7 @@ const ForgetPassword = () => {
       >
         <h3 className="">Get Reset Link:</h3>
         <input
+        id="reset-email"
           className="form__input"
           type="email"
           name="Email"
