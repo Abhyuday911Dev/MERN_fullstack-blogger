@@ -39,7 +39,7 @@ const Signin = () => {
   useEffect(() => {
     if(flg) {
       console.log(user.error);
-      if(user.error !== "can not access the resource"){
+      if(user.error !== "can not access the resource" || user.error !== "session timeout! login again"){
         toast.error(user.error, {
           position: "top-right",
           autoClose: 5000,

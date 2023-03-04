@@ -1,5 +1,4 @@
 import { createReactEditorJS } from "react-editor-js";
-
 import { useRef, useCallback } from "react";
 import { EDITOR_JS_TOOLS } from "./constants";
 import { asynccreateblog, asyncloadblogs } from "../../store/userActions";
@@ -79,16 +78,30 @@ function App() {
 
     await dispatch(asynccreateblog({ data: blog }));
     await dispatch(asyncloadblogs());
+    await editorJS.current.clear();
+
   };
 
   const handleClear = useCallback(async () => {
     await editorJS.current.clear();
   }, []);
   return (
-    <div>
-      <ReactEditorJS tools={EDITOR_JS_TOOLS} onInitialize={handleInitialize} />
-      <button onClick={handleSave}>Save</button>
-      <button onClick={handleClear}>Clear</button>
+    <div className="editor-section">
+      <h5>Create your Blog</h5>
+      <div className="editor-div">
+        <ReactEditorJS
+          tools={EDITOR_JS_TOOLS}
+          onInitialize={handleInitialize}
+        />
+      </div>
+      <div id="editorbtns">
+        <button className="profile-btn save-clear" onClick={handleSave}>
+          Save
+        </button>
+        <button className="profile-btn save-clear" onClick={handleClear}>
+          Clear
+        </button>
+      </div>
     </div>
   );
 }

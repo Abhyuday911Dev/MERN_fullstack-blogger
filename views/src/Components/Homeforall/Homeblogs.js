@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { asyncloadblogs, asyncloaduser } from "../../store/userActions";
 
 const Homeblogs = () => {
@@ -16,7 +17,16 @@ const Homeblogs = () => {
   }, [dispatch]);
 
   const homeclickHandler = (params) => {
-    alert("muh me le");
+    toast.info('Signup to save blogs! ', {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      })
     navigate("/signup")
   }
 

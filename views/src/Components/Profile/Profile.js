@@ -1,26 +1,24 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
-import { asyncsignout } from "../../store/userActions";
+import { useSelector } from "react-redux";
+import { Outlet, useLocation } from "react-router-dom";
 import Editor from "./Editor";
 import Profiledets from "./Profiledets";
 
 const Profile = () => {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-
-  const signoutUser = () => {
-    dispatch(asyncsignout());
-  };
+  const location = useLocation();
 
   return (
     <div id="profile">
       <Profiledets name={user.user.name} />
-      <Outlet />
-      <button className="profile-btn" onClick={signoutUser}>
-        Signout
-      </button>
-      <Editor />
+      <div className="d-flex">
+        <Outlet />
+        {location.pathname === "/" ? (
+          <Editor />
+        ) : (
+          console.log("no editor for you")
+        )}
+      </div>
     </div>
   );
 };

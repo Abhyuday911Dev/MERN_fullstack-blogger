@@ -1,16 +1,18 @@
-import React from 'react'
-import Hero from './Hero'
-import Homeblogs from './Homeblogs'
-import Nav from './Nav'
+import React from "react";
+import Hero from "./Hero";
+import Homeblogs from "./Homeblogs";
+import Nav from "./Nav";
 
 const Homepagecommon = () => {
   return (
     <>
-    <Nav />
-        <Hero />
+      <Nav />
+      <Hero />
+      <div className="d-flex home-bottom">
         <Homeblogs />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Homepagecommon
+export default Homepagecommon;
