@@ -52,7 +52,7 @@ body {
 
 nav {
     position: fixed;
-    width: calc(100% - 4vw) ;
+    width: calc(100% - 4vw);
     z-index: 10;
     top: 13px;
     background-color: #ae8e35;
@@ -167,7 +167,7 @@ li button {
     font-size: 20px;
 }
 
-.home-bottom{
+.home-bottom {
     padding: 0 2vw;
 }
 
@@ -365,7 +365,7 @@ button {
     margin-left: 20px;
 }
 
-.editor-section h5 {
+#create-h5 {
     font-size: 30px;
     margin-bottom: 10px;
     background-color: #232323;
@@ -433,8 +433,17 @@ button {
     padding: 20px;
     border-radius: 10px 10px 0 10px;
     overflow-y: scroll;
+    position: relative;
 }
 
+#profile-card img {
+    width: 200px;
+    height: 85%;
+    object-fit: cover;
+    border: 5px solid #555;
+    border-radius: 4px;
+    margin-top: 5px;
+}
 
 #profile-card::-webkit-scrollbar {
     width: 4px;
@@ -445,17 +454,9 @@ button {
 }
 
 #profile-card::-webkit-scrollbar-thumb {
-    background: #363636 ;
+    background: #363636;
 }
 
 #profile-card::-webkit-scrollbar-thumb:hover {
     background: #0e1011;
-}
-
-
-
-img {
-    width: 200px;
-    height: 85%;
-    object-fit: cover;
 }
