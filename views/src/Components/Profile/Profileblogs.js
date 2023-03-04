@@ -34,6 +34,7 @@ const Profileblogs = () => {
       await dispatch(asyncloadblogs());
       await dispatch(asyncloaduser());
     };
+    loadBlogs();
   }, [dispatch]);
 
   const blogCards =
