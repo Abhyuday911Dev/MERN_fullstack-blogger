@@ -87,7 +87,7 @@ function App() {
   }, []);
   return (
     <div className="editor-section">
-      <h5>Create your Blog</h5>
+      <h5 id="create-h5">Create your Blog</h5>
       <div className="editor-div">
         <ReactEditorJS
           tools={EDITOR_JS_TOOLS}
