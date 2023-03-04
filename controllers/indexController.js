@@ -6,9 +6,9 @@ const formidable = require("formidable");
 const cloudinary = require("cloudinary");
 
 cloudinary.config({
-  cloud_name: "dhanesh-cloudinary",
-  api_key: "176257529696164",
-  api_secret: "FsvsmtHChA4V5HJXdYSuMzzRwSg",
+  cloud_name: "du8ykqrv5",
+  api_key: "226725129774491",
+  api_secret: "hzADEQzsO2XXX3edCDkB9zBnpN0",
   secure: true,
 });
 

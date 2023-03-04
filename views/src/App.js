@@ -34,7 +34,10 @@ const App = () => {
             <Route path="/mysavedblogs" element={<Savedblogs />}></Route>
           </Route>
           <Route path="/signin" element={<Signin />}>
-            <Route path="/signin/forget-password" element={<ForgetPassword />}></Route>
+            <Route
+              path="/signin/forget-password"
+              element={<ForgetPassword />}
+            ></Route>
           </Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/profile" element={<Profile />}></Route>

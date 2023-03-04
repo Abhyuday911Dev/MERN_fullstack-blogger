@@ -232,8 +232,8 @@ button {
 }
 
 #profileimg {
-    height: 250px;
-    width: 250px;
+    height: 18vmax;
+    width: 18vmax;
     border-radius: 5%;
     border: rgb(27, 27, 27) 10px solid;
     margin-right: 4vw;
@@ -285,6 +285,8 @@ button {
 
 .pbelow {
     justify-content: space-between;
+    gap: 2vw;
+    width: 100%;
 }
 
 .signout-btn {
@@ -296,7 +298,6 @@ button {
 
 .n-signout {
     width: 75%;
-    margin-right: 50px;
 }
 
 /* .signout-btn{
