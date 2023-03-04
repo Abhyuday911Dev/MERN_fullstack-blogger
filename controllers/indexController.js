@@ -77,17 +77,17 @@ exports.sendmail = async (req, res, next) => {
       host: "smtp.gmail.com",
       port: 465,
       auth: {
-        user: "dhanesh1296@gmail.com",
-        pass: "rriexnwtxmiwexld",
+        user: "abhyuday9111@gmail.com",
+        pass: process.env.MAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: "Dhanesh Pvt. Ltd.<dhanesh1296@gmail.com>",
+      from: "Abhyuday<abhyuday9111@gmail.com>",
       to: req.body.email,
       subject: "Password Reset Link",
       text: "Do not share this link to anyone.",
-      html: `<a href=${pageurl}>Password Reset Link</a>`,
+      html: `<a href=${pageurl}>Click to redirect to password reset page</a>`,
     };
 
     transport.sendMail(mailOptions, async (err, info) => {
