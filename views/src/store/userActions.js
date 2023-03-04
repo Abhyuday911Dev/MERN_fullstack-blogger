@@ -44,12 +44,47 @@ export const asyncsignout = () => async (dispatch) => {
 
 export const getresetlink = async (e) => {
   // console.log(e.email);
-  try {
-    const { data } = await axios.post("/send-mail", {
-      email: e.email,
-    });
+  // try {
+  //   const { data } = await axios.post("/send-mail", {
+  //     email: e.email,
+  //   });
 
-    toast.success(data.message, {
+  //   toast.success(data.message, {
+  //     position: "top-right",
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "dark",
+  //     });
+  // } catch (err) {
+  //   // console.log("catch",err.response.data)
+  //   toast.error(err.response.data.message, {
+  //     position: "top-right",
+  //     autoClose: 5000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "dark",
+  //   });
+  // }
+
+  let pp = axios.post("/send-mail", {
+    email: e.email,
+  });
+  
+  toast.promise(
+    pp,
+    {
+      pending: "Sending Email...",
+      success: "Email sent!",
+      error: "User not found!",
+    },
+    {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -58,20 +93,8 @@ export const getresetlink = async (e) => {
       draggable: true,
       progress: undefined,
       theme: "dark",
-      });
-  } catch (err) {
-    // console.log("catch",err.response.data)
-    toast.error(err.response.data.message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  }
+    }
+  );
 };
 
 export const asyncloadblogs = () => async (dispatch) => {
