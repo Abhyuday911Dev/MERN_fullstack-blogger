@@ -42,10 +42,11 @@ export const asyncsignout = () => async (dispatch) => {
   }
 };
 
-export const getresetlink = async (email) => {
+export const getresetlink = async (e) => {
+  // console.log(e.email);
   try {
     const { data } = await axios.post("/send-mail", {
-      email: "abhyuday911@gmail.com",
+      email: e.email,
     });
 
     toast.success(data.message, {
@@ -59,7 +60,8 @@ export const getresetlink = async (email) => {
       theme: "dark",
       });
   } catch (err) {
-    toast.error(err, {
+    // console.log("catch",err.response.data)
+    toast.error(err.response.data.message, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
