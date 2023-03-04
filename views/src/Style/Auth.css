@@ -28,12 +28,12 @@ select:-webkit-autofill:focus {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5vw;
 }
 
 
 #formparent {
     position: relative;
-    width: 100px;
     width: min(420px, 80vw);
     min-height: 600px;
     height: 600px;
@@ -42,6 +42,39 @@ select:-webkit-autofill:focus {
     border-radius: 12px;
     overflow: hidden;
     background-color: #181818;
+}
+
+#forgetparent{
+    width: min(420px, 80vw);
+    background-color: #181818;
+    box-shadow: 10px 10px 10px rgba(19, 19, 19, 0.691), -10px -10px 10px #171717ae;
+    border-radius: 12px;
+    padding: 1vw 2vw;
+}
+
+#forgetparent h3{
+    font-size: 2vmax;
+    margin-bottom: 1%;
+    margin-left: 3px;
+}
+
+#send-link{
+    margin-top: 2%;
+    height: 32px;
+    width: auto;
+    padding: 0 20px;
+    font-size: 13px;
+    margin-left: 3px;
+    border-radius: 10px;
+    background-color: #233876;
+    font-weight: 600;
+    color: #b4b4b4;
+    border: 0;
+}
+
+#forget-form{
+    /* justify-content: flex-start; */
+    align-items: flex-start;
 }
 
 .crossauth{

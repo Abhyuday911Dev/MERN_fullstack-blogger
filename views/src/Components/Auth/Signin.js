@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { asyncsignin } from "../../store/userActions";
 import { toast } from "react-toastify";
 import "../../Style/Auth.css";
@@ -97,7 +97,7 @@ const Signin = () => {
               value={temppass}
               onChange={(e) => setTemppass(e.target.value)}
             />
-            <Link className="form__link thicklink">Forgot your password?</Link>
+            <Link to={"/signin/forget-password"} className="form__link thicklink">Forgot your password?</Link>
             <button
               id="button_h"
               type="submit"
@@ -108,6 +108,7 @@ const Signin = () => {
             </button>
           </form>
         </div>
+        <Outlet/>
       </div>
     </>
   );

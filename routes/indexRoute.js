@@ -37,7 +37,7 @@ router.get("/signout", isLoggedIn, signout);
 // delete/:id
 
 // get /send-mail - logout user
-router.get("/send-mail", sendmail);
+router.post("/send-mail", sendmail);
 
 // get /forget-password - send mail
 router.get("/forget-password/:id", forgetpassword);

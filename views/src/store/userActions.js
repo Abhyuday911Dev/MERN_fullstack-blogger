@@ -1,5 +1,6 @@
 import { loaduser, errors, signout, loadblogs } from "./UserSlice";
 import axios from "../axios";
+import { toast } from "react-toastify";
 
 export const asyncsignup = (newuser) => async (dispatch) => {
   try {
@@ -41,6 +42,36 @@ export const asyncsignout = () => async (dispatch) => {
   }
 };
 
+export const getresetlink = async (email) => {
+  try {
+    const { data } = await axios.post("/send-mail", {
+      email: "abhyuday911@gmail.com",
+    });
+
+    toast.success(data.message, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  } catch (err) {
+    toast.error(err, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
+};
+
 export const asyncloadblogs = () => async (dispatch) => {
   try {
     const { data } = await axios.get("/blogs");
@@ -52,6 +83,7 @@ export const asyncloadblogs = () => async (dispatch) => {
   }
 };
 
+//taking arguments to send get dynamic requet
 export const asyncsaveunsaveblog = (e) => async (dispatch) => {
   try {
     await axios.get(`/list/${e}`);
