@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncloadmyblogs } from "../../store/userActions";
+import { asyncdeleteblog, asyncloadmyblogs } from "../../store/userActions";
 
 const Myblogs = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,12 @@ const Myblogs = () => {
     dispatch(asyncloadmyblogs());
   }, [dispatch]);
 
-  // console.log(user);
+  const deleteHandler = async (e) => {
+    alert(e)
+    dispatch(asyncdeleteblog(e));
+    dispatch(asyncloadmyblogs());
+  };
+
 
   return (
     <>
@@ -24,7 +29,13 @@ const Myblogs = () => {
                 id="profile-card"
                 dangerouslySetInnerHTML={{ __html: blog.data }}
               ></div>
-              <section>ada</section>
+              <section><i
+                  onClick={(e) => {
+                    deleteHandler(blog._id);
+                  }}
+                  key={blog._id}
+                  className="ri-delete-bin-6-line"
+                ></i></section>
             </div>
           ))}
       </div>

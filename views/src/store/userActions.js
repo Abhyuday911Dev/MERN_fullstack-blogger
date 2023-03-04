@@ -122,6 +122,23 @@ export const asyncsaveunsaveblog = (e) => async (dispatch) => {
   }
 };
 
+export const asyncdeleteblog = (e) => async (dispatch) => {
+  try {
+    console.log(`/deleteblog/${e}`);
+    await axios.get(`/deleteblog/${e}`);
+    // dispatch(asyncloadmyblogs());
+    // const data = await axios.get(`/list/${e}`);
+    // dispatch(loaduser(data.user));
+    // console.log("loaduser action>>>>>", data.data.stories);
+    // console.log(data);
+    // dispatch(loadblogs(data.data.stories));
+  } catch (err) {
+    dispatch(errors(err.response.data.message));
+  }
+};
+
+
+
 export const asyncloadmyblogs = () => async (dispatch) => {
   try {
     const data = await axios.get("/show-stories");

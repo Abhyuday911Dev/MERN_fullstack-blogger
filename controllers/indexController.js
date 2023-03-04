@@ -191,7 +191,28 @@ exports.showlists = async (req, res) => {
   }
 };
 
-// my listblog route
+// my deleteblog
+
+exports.deleteblog = async (req, res) => {
+  const blogId = req.params.id;
+ 
+  // if(req.user.stories){
+  //   console.log(req.user.stories)
+  // }
+  try {
+    // Find the blog by its ID and remove it from the database
+    const deletedBlog = await Blog.findByIdAndDelete(blogId);
+    if (!deletedBlog) {
+      return res.status(404).send('Blog not found');
+    }
+    return res.send(`Blog deleted successfully`);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send('Internal server error');
+  }
+};
+
+// my listblog
 
 exports.listblog = async (req, res) => {
   const { blogid } = req.params;

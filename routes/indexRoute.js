@@ -15,6 +15,7 @@ const {
     currentuser,
     uploadBlog,
     showlists,
+    deleteblog,
 } = require("../controllers/indexController");
 const { isLoggedIn } = require("../utils/auth");
 
@@ -67,5 +68,9 @@ router.get("/list/:blogid", isLoggedIn, listblog);
 
 // post /uploadBlog - save the blog to image to cloudinary
 router.post("/uploadBlog", uploadBlog);
+
+// deleteblog/:id
+// my route
+router.get("/deleteblog/:id", isLoggedIn,deleteblog); 
 
 module.exports = router;
