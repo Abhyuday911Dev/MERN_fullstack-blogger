@@ -38,7 +38,13 @@ const Profileblogs = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    window.scrollTo(200, 200);
+    setCollection(blogs.slice(0, countPerPage));
+  }, [blogs]);
+
+  useEffect(() => {
+    if (window.scrollY !== 0) {
+      window.scrollTo(200, 200);
+    }
   }, [collection]);
 
   const blogCards =
@@ -66,23 +72,23 @@ const Profileblogs = () => {
       </div>
     ));
 
-    return (
-      <>
-        <div id="profileblog">
-          <h2>Trending blogs</h2>
-  
-          {blogCards}
-          <div className="d-flex justify-content-center">
-            <Pagination
-              onChange={updatePage}
-              total={blogs.length}
-              current={currentPage}
-              pageSize={countPerPage}
-            />
-          </div>
+  return (
+    <>
+      <div id="profileblog">
+        <h2>Trending blogs</h2>
+
+        {blogCards}
+        <div className="d-flex justify-content-center">
+          <Pagination
+            onChange={updatePage}
+            total={blogs.length}
+            current={currentPage}
+            pageSize={countPerPage}
+          />
         </div>
-      </>
-    );
-  };
+      </div>
+    </>
+  );
+};
 
 export default Profileblogs;
