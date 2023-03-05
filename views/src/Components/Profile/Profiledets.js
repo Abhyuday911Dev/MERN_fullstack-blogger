@@ -57,6 +57,7 @@ const Profiledets = (props) => {
     ) : (
       navigate("/")
     );
+    window.scrollTo(230, 230);
   };
 
   return (

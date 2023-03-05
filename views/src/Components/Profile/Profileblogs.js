@@ -37,6 +37,10 @@ const Profileblogs = () => {
     loadBlogs();
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(200, 200);
+  }, [collection]);
+
   const blogCards =
     user &&
     blogs &&
@@ -71,7 +75,7 @@ const Profileblogs = () => {
           <div className="d-flex justify-content-center">
             <Pagination
               onChange={updatePage}
-              total={blogs.length - countPerPage}
+              total={blogs.length}
               current={currentPage}
               pageSize={countPerPage}
             />
