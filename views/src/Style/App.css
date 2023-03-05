@@ -379,12 +379,12 @@ button {
     color: #999999b0;
 }
 
-#getquoteparent{
+#getquoteparent {
     width: 40%;
     margin-left: 30px;
 }
 
-#getquote{
+#getquote {
     padding: 10px 20px 20px 20px;
     background-color: #232323;
     border-radius: 10px;
@@ -392,25 +392,34 @@ button {
     box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
     -webkit-box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
     -moz-box-shadow: 1px 1px 50px 0px rgba(0, 0, 0, 0.81) inset;
+    position: relative;
 }
 
-#getquote h1{
+.quote-refresh {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 3vmax;
+    cursor: pointer;
+}
+
+#getquote h1 {
     margin-bottom: 15px;
     font-size: 3.5vmax;
 }
 
-#getquote h2{
+#getquote h2 {
     font-size: 2vmax;
 }
 
-#getquote h3{
+#getquote h3 {
     font-size: 1.7vmax;
     text-align: end;
     margin-top: 10px;
     padding-right: 5px;
 }
 
-.highlightcolor{
+.highlightcolor {
     color: #AE8E35;
 }
 
