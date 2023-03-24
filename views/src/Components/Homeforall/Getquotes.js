@@ -20,7 +20,7 @@ const Getquotes = () => {
   return (
     <div id="getquoteparent">
       <div id="getquote">
-        <i class="ri-restart-fill quote-refresh" onClick={apidata}></i>
+        <i className="ri-restart-fill quote-refresh" onClick={apidata}></i>
         <h1>
           <span className="highlightcolor">T</span>o
           <span className="highlightcolor">da</span>ys{" "}

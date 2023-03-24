@@ -38,6 +38,7 @@ const Profileblogs = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    console.log("dddd",[...blogs].reverse());
     setCollection(blogs.slice(0, countPerPage));
   }, [blogs]);
 
@@ -70,7 +71,7 @@ const Profileblogs = () => {
           ></i>
         </section>
       </div>
-    ));
+    )).reverse();
 
   return (
     <>
