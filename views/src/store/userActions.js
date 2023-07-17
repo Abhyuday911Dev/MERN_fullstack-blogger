@@ -102,7 +102,7 @@ export const asyncloadblogs = () => async (dispatch) => {
     const { data } = await axios.get("/blogs");
     // console.log("loaduser action>>>>>", data);
     // console.log(data);
-    dispatch(loadblogs(data.blogs));
+    dispatch(loadblogs(data.blogs.reverse()));
   } catch (err) {
     dispatch(errors(err.response.data.message));
   }
