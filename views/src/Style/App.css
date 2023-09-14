@@ -86,7 +86,7 @@ nav {
 }
 
 #ulflex li,
-#ulflex li a {
+#ulflex li a,#ulflex li s {
     cursor: pointer;
     padding-right: 22px;
     font-weight: 600;

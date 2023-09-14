@@ -65,6 +65,7 @@ exports.sendmail = async (req, res, next) => {
   try {
     const { email } = req.body;
     const user = await User.findOne({ email }).exec();
+    console.log(user)
     if (!user) {
       return res.status(404).json({ message: "user not found." });
     }
@@ -99,6 +100,7 @@ exports.sendmail = async (req, res, next) => {
       });
     });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: error });
   }
 };
